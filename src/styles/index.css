@@ -1,0 +1,249 @@
+@import '@fontsource/sora/latin-600.css';
+@import '@fontsource/sora/latin-700.css';
+@import '@fontsource/dm-sans/latin-400.css';
+@import '@fontsource/dm-sans/latin-500.css';
+@import '@fontsource/dm-sans/latin-600.css';
+@import 'tailwindcss';
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/* ---------- Tokens (tema escuro é o padrão) ---------- */
+:root,
+[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0e1116;
+  --sidebar: #12161d;
+  --surface: #161b22;
+  --surface-2: #1b212a;
+  --border: #232a34;
+  --border-strong: #2b3440;
+  --text: #e8ecf1;
+  --text-muted: #9aa4b2;
+  --primary: #38bdf8;
+  --primary-foreground: #04121c;
+  --primary-soft: #7dd3fc;
+  --primary-tint: rgb(56 189 248 / 0.12);
+  --success: #4ade80;
+  --success-tint: rgb(74 222 128 / 0.12);
+  --warning: #fb923c;
+  --warning-tint: rgb(251 146 60 / 0.12);
+  --danger: #f87171;
+  --danger-tint: rgb(248 113 113 / 0.12);
+  --whatsapp-bg: #102a1c;
+  --whatsapp-text: #86efac;
+  --whatsapp-border: #1f5a3a;
+  --plate-bg: #f1f5f9;
+  --plate-text: #0e1116;
+  --plate-border: #cbd5e1;
+  --overlay: rgb(5 8 12 / 0.7);
+  --shadow: 0 10px 30px rgb(0 0 0 / 0.35);
+  /* Paleta categórica validada (ordem fixa; CVD e contraste conferidos com validador) */
+  --chart-1: #3987e5;
+  --chart-2: #d95926;
+  --chart-3: #199e70;
+  --chart-4: #c98500;
+  --chart-5: #d55181;
+  --chart-muted: #2b3440;
+}
+
+/* Tema claro equivalente — combinações com contraste AA */
+[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f4f6f9;
+  --sidebar: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #eef2f6;
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --text: #0f172a;
+  --text-muted: #4b5563;
+  --primary: #0369a1;
+  --primary-foreground: #ffffff;
+  --primary-soft: #075985;
+  --primary-tint: rgb(3 105 161 / 0.1);
+  --success: #15803d;
+  --success-tint: rgb(21 128 61 / 0.1);
+  --warning: #c2410c;
+  --warning-tint: rgb(194 65 12 / 0.1);
+  --danger: #b91c1c;
+  --danger-tint: rgb(185 28 28 / 0.08);
+  --whatsapp-bg: #dcfce7;
+  --whatsapp-text: #166534;
+  --whatsapp-border: #86efac;
+  --plate-bg: #ffffff;
+  --plate-text: #0e1116;
+  --plate-border: #94a3b8;
+  --overlay: rgb(15 23 42 / 0.45);
+  --shadow: 0 10px 30px rgb(15 23 42 / 0.12);
+  --chart-1: #2a78d6;
+  --chart-2: #eb6834;
+  --chart-3: #1baf7a;
+  --chart-4: #eda100;
+  --chart-5: #e87ba4;
+  --chart-muted: #cbd5e1;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-sidebar: var(--sidebar);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-text: var(--text);
+  --color-muted: var(--text-muted);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-tint: var(--primary-tint);
+  --color-success: var(--success);
+  --color-success-tint: var(--success-tint);
+  --color-warning: var(--warning);
+  --color-warning-tint: var(--warning-tint);
+  --color-danger: var(--danger);
+  --color-danger-tint: var(--danger-tint);
+  --color-whatsapp-bg: var(--whatsapp-bg);
+  --color-whatsapp-text: var(--whatsapp-text);
+  --color-whatsapp-border: var(--whatsapp-border);
+  --color-plate-bg: var(--plate-bg);
+  --color-plate-text: var(--plate-text);
+  --color-plate-border: var(--plate-border);
+  --color-overlay: var(--overlay);
+
+  --font-display: 'Sora', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 18px;
+  --radius-btn: 12px;
+  --shadow-pop: var(--shadow);
+
+  --animate-fade-in: fade-in 180ms ease-out;
+  --animate-pop-in: pop-in 200ms cubic-bezier(0.2, 0.9, 0.3, 1);
+  --animate-slide-up: slide-up 220ms cubic-bezier(0.2, 0.9, 0.3, 1);
+
+  @keyframes grow {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+  @keyframes shake {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    20%,
+    60% {
+      transform: translateX(-8px);
+    }
+    40%,
+    80% {
+      transform: translateX(8px);
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes pop-in {
+    from {
+      opacity: 0;
+      transform: translateY(6px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer base {
+  html {
+    font-size: calc(16px * var(--font-scale, 1));
+  }
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: 'tnum' 0;
+  }
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+  }
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: var(--primary-tint);
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-strong) transparent;
+  }
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']) {
+    cursor: pointer;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+  }
+}
+
+/* Impressão: só o comprovante (bobina térmica) ou o relatório (A4) aparecem */
+@page {
+  margin: 0;
+}
+.print-report {
+  width: 210mm;
+  padding: 14mm !important;
+}
+@media print {
+  html,
+  body {
+    background: #fff !important;
+  }
+  body * {
+    visibility: hidden;
+  }
+  .print-area,
+  .print-area * {
+    visibility: visible;
+  }
+  .print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}

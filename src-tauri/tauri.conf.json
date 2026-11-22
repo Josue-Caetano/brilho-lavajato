@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Brilho",
+  "version": "1.1.0",
+  "identifier": "br.com.brilho.lavajato",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Brilho",
+        "width": 1366,
+        "height": 768,
+        "minWidth": 1200,
+        "minHeight": 700,
+        "maximized": true,
+        "center": true,
+        "backgroundColor": "#0E1116"
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; img-src 'self' data: blob: asset: http://asset.localhost; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self' 'wasm-unsafe-eval'; connect-src ipc: http://ipc.localhost 'self'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["msi", "nsis"],
+    "publisher": "Brilho",
+    "category": "Business",
+    "shortDescription": "Gestão para lava-jato",
+    "longDescription": "Brilho — fila de carros, clientes, caixa e relatórios para lava-jato.",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "windows": {
+      "wix": { "language": "pt-BR" },
+      "nsis": { "languages": ["PortugueseBR"], "installMode": "currentUser" }
+    },
+    "createUpdaterArtifacts": false
+  },
+  "plugins": {
+    "updater": {
+      "endpoints": [],
+      "pubkey": ""
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Permissões da janela principal do Brilho",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "core:window:allow-close",
+    "core:window:allow-destroy",
+    "sql:default",
+    "sql:allow-execute",
+    "dialog:default",
+    "store:default",
+    "updater:default",
+    {
+      "identifier": "shell:allow-open",
+      "allow": [{ "url": "https://wa.me/**" }, { "url": "https://api.whatsapp.com/**" }]
+    },
+    "fs:default",
+    "fs:allow-read-file",
+    "fs:allow-write-file",
+    "fs:allow-read-dir",
+    "fs:allow-remove",
+    "fs:allow-copy-file",
+    "fs:allow-mkdir",
+    "fs:allow-exists",
+    "fs:allow-stat",
+    { "identifier": "fs:scope", "allow": [{ "path": "**" }, { "path": "**/*" }] }
+  ]
+}
